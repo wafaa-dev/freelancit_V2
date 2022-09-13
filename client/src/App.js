@@ -26,6 +26,7 @@ import AddProject from "./components/project-forms/AddProject";
 import Candidates from "./components/project/Candidates";
 import { getAllProjects } from "./redux/actions/project";
 import { getAllProfiles } from "./redux/actions/profile";
+import Contact from "./components/layout/Contact";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -48,6 +49,7 @@ const App = () => {
         </Box>
         <Switch>
           <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
           <Route exact path="/register" component={SignUp} />
           <Route exact path="/login" component={SignIn} />
           <Route exact path="/profiles" component={Profiles} />

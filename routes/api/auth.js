@@ -10,6 +10,8 @@ const config = require("config");
 //* @route    Get api/auth
 //* desc      Auth route
 //* access    Public
+
+//use auth middleware to make the route
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);

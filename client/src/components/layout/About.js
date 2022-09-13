@@ -9,9 +9,10 @@ import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 import TimelineDot from "@material-ui/lab/TimelineDot";
 import FastfoodIcon from "@material-ui/icons/Fastfood";
 import LaptopMacIcon from "@material-ui/icons/LaptopMac";
-import HotelIcon from "@material-ui/icons/Hotel";
+import AirlineSeatIndividualSuiteIcon from '@material-ui/icons/AirlineSeatIndividualSuite';
+import HotelOutlinedIcon from '@material-ui/icons/HotelOutlined';
 import RepeatIcon from "@material-ui/icons/Repeat";
-import { Paper, Typography } from "@material-ui/core";
+import { Paper,Box, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -26,6 +27,13 @@ const About = () => {
   const classes = useStyles();
 
   return (
+    <Box style={{textAlign:"center"}}>
+      <Typography variant="h4"style={{color:"white"}}>wafa sakouhi's portfolio</Typography>
+   
+     <Typography variant="h4" style={{ color: "white" ,alignContent:"center"}}>
+              My life be like
+      </Typography>
+          
     <Timeline align="alternate">
       <TimelineItem>
         <TimelineOppositeContent>
@@ -71,8 +79,8 @@ const About = () => {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot color="primary" variant="outlined">
-            <HotelIcon />
+          <TimelineDot color="primary" >
+            <HotelOutlinedIcon />
           </TimelineDot>
           <TimelineConnector className={classes.secondaryTail} />
         </TimelineSeparator>
@@ -101,6 +109,7 @@ const About = () => {
         </TimelineContent>
       </TimelineItem>
     </Timeline>
+    </Box>
   );
 };
 

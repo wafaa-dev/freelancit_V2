@@ -25,6 +25,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
+      // const user = await User.findById(req.user.id).select('-password');
       const user = await User.findById(req.user.id);
       const {
         title,
@@ -93,19 +94,48 @@ router.get("/:projectId", async (req, res) => {
 //* @route    Delete api/project/:id
 //* desc      Delete project by id
 //* access    Private
+
 router.delete("/:id", auth, async (req, res) => {
   try {
     const project = await Project.findById(req.params.id);
+    if (!project){
+      return res.status(404).json({msg:'Project not found'});
+    }
     if (project.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "User not authorized" });
     }
     await project.remove();
     res.json({ msg: "Project Removed" });
   } catch (error) {
+  if (err.kind ==="ObjectId"){
+      return res.status(404).json({msg:"Project not found"});
+    }
     console.error(error.message);
     res.status(500).send("Server Error");
   }
 });
+
+// router.delete('/:id',auth, async (req,res)=>{
+//   try {
+//     const project = await Project.findById(req.params.id);
+//     if (!project){
+//       return res.status(404).json({msg:'Project not found'});
+//     }
+    //check user
+    // if (project.user.toString() !== req.user.id){
+    //   return res.status(401).json({msg :"User not authorized"});
+    //  }
+    //  await project.remove();
+    //  res.json({msg:"Project removed"});
+//   } catch (error) {
+//     console.error(err.message);
+//     if (err.kind ==="ObjectId"){
+//       return res.status(404).json({msg:"Project not found"});
+//     }
+//     res.status(500).send('server error');
+//   }
+// });
+
 //* @route    POST api/project/comment/:projectId
 //* desc      Comment a Project
 //* access    Private
@@ -144,6 +174,7 @@ router.post(
 router.delete("/comment/:projectId/:commentId", auth, async (req, res) => {
   try {
     const project = await Project.findById(req.params.projectId);
+    // pull out the comment
     const comment = project.comments.find((comment) => {
       return comment.id === req.params.commentId;
     });
@@ -153,6 +184,7 @@ router.delete("/comment/:projectId/:commentId", auth, async (req, res) => {
     if (project.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "User not authorized" });
     }
+    //get remove index
     const removeIndex = project.comments.map((comment) => {
       return comment.user.toString().indexOf(req.user.id);
     });

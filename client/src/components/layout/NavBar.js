@@ -47,8 +47,8 @@ const NavBar = () => {
 
   const options = [
     { text: "Home", link: "/", icon: <HomeIcon /> },
-    { text: "About Us", link: "/about", icon: <InfoIcon /> },
-    { text: "ContactUs", link: "/contact", icon: <PermContactCalendarIcon /> },
+    { text: "About Me", link: "/about", icon: <InfoIcon /> },
+    { text: "Contact Me", link: "/contact", icon: <PermContactCalendarIcon /> },
   ];
 
   const ITEM_HEIGHT = 48;

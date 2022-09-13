@@ -1,7 +1,10 @@
 {
-    "MONGO_URI": "mongodb+srv://meher_slimani:meher123@cluster0.q0yff.mongodb.net/freelancitDB?retryWrites=true&w=majority",
-    "PORT": "5000",
+    "MONGO_URI": "mongodb+srv://wafaa:fifi123@devconnector.ip8ox.mongodb.net/devconnectorDB?retryWrites=true&w=majority",
+    "PORT": "5001",
     "jwtSecret": "mySecret",
-    "githubClientId": "a7d186c5a4a444762949",
-    "githubSecret": "2620cb1bd2306440aa3f525faaf26edd3c71799e"
+    "githubClientId": "0c85297f16a4ce602f76",
+    "githubSecret": "ac17e31c0a15d6514077e03707a974e83d5fb408"
+
+    // "githubClientId": "a7d186c5a4a444762949",
+    // "githubSecret": "2620cb1bd2306440aa3f525faaf26edd3c71799e"
 }
